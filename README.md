@@ -106,3 +106,18 @@
 		new Vue({
 			store
 		})
+
+# 自定义事件机制(消息):
+
+    1. 绑定事件监听(订阅消息)
+       事件名(消息名)
+       回调函数(event): 读取数据
+    2. 触发事件(发布消息)
+       事件名(消息名)
+       数据
+    3. 2种事件触发的方式
+      用户操作
+      编码触发(自定义的)
+    pubsub
+      pubsub.subscribe('messageName', function(){'messageName', data})
+      pusub.pushlish('messagename', data)
