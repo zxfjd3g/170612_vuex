@@ -1,12 +1,11 @@
 import Vue from 'vue'
-import App from './components/app'
+import app from './components/app.vue'
 import store from './store'
-
 import './base.css'
 
-/* eslint-disable no-new */
+// 创建vm对象
 new Vue({
   el: '#app',
-  render: h => h(App),
+  render: h => h(app),
   store
 })

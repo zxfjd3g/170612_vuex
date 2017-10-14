@@ -1,5 +1,5 @@
 export default {
-  todos (state) {
+  todos(state) {
     return state.todos
   },
 
@@ -7,13 +7,13 @@ export default {
     return state.todos.length
   },
 
-  completeSize (state) {
+  completeSize(state) {
     return state.todos.reduce((preTotal, todo) => {
       return preTotal + (todo.complete ? 1 : 0)
     }, 0)
   },
 
   isAllComplete (state, getters) {
-    return  getters.totalSize===getters.completeSize && getters.totalSize>0
+    return getters.totalSize>0 && getters.totalSize===getters.completeSize
   }
 }

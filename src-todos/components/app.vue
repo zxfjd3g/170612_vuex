@@ -1,29 +1,28 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <todo-header></todo-header>
-      <todo-main></todo-main>
-      <todo-footer></todo-footer>
+      <todos-header></todos-header>
+      <list></list>
+      <todos-footer></todos-footer>
     </div>
   </div>
 </template>
 
 <script>
-  import todoHeader from './todoHeader.vue'
-  import todoMain from './todoMain.vue'
-  import todoFooter from './todoFooter.vue'
-  import storageUtil from '../util/storageUtil'
+  import header from './header.vue'
+  import list from './list.vue'
+  import footer from './footer.vue'
 
   export default {
-    created () {
-      // 模拟异步读取数据
-      this.$store.dispatch('readTodo')
+
+    mounted() {
+      this.$store.dispatch('readTodos')
     },
 
     components: {
-      todoHeader,
-      todoMain,
-      todoFooter
+      'todos-header': header,
+      list,
+      'todos-footer': footer
     }
   }
 </script>

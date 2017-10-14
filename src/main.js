@@ -1,9 +1,12 @@
 import Vue from 'vue'
-import counter from './counter.vue'
 import store from './store'
+import app from './components/app.vue'
+import {currency} from './currency'
+
+Vue.filter('currency', currency)
 
 new Vue({
   el: '#app',
-  render: h => h(counter),
-  store // 内部会在所有组件对象上添加$store
+  store,
+  render: h => h(app)
 })

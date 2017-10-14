@@ -1,28 +1,27 @@
 import storageUtil from '../util/storageUtil'
-import {RECEIVE_TODOS, ADD_TODO, REMOVE_TODO, DELETE_DONE, UPDATE_ALL_TODOS} from './types'
 
 export default {
-  readTodo ({commit}) {
+  addTodo({commit}, todo) {
+    commit('ADD_TODO', {todo})
+  },
+
+  deleteTodo({commit}, index) {
+    commit('DELETE_TODO', {index})
+  },
+
+  selectAll({commit}, checkAll) {
+    commit('SELECT_ALL', {checkAll})
+  },
+
+  clearAllCompleted({commit}) {
+    commit('CLEAR_ALL_COMPLETED')
+  },
+
+  readTodos({commit}) {
+    //模拟异步读取数据
     setTimeout(() => {
-      const todos = storageUtil.fetch()
-      // 提交commit触发mutation调用
-      commit(RECEIVE_TODOS, {todos})
+      const todos = storageUtil.readTodos()
+      commit('READ_TODOS', {todos})
     }, 1000)
-  },
-
-  addTodo ({commit}, todo) {
-    commit(ADD_TODO, {todo})
-  },
-
-  removeTodo ({commit}, index) {
-    commit(REMOVE_TODO, {index})
-  },
-
-  deleteDone ({commit}) {
-    commit(DELETE_DONE)
-  },
-
-  updateAllTodos ({commit}, isCheck) {
-    commit(UPDATE_ALL_TODOS, {isCheck})
   }
 }
