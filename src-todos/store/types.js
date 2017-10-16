@@ -1,0 +1,5 @@
+export const ADD_TODO = 'add_todo'
+export const DELETE_TODO = 'delete_todo'
+export const SELECT_ALL = 'select_all'
+export const CLEAR_ALL_COMPLETED = 'clear_all_completed'
+export const READ_TODOS = 'read_todos'
